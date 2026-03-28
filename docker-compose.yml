@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  ai-api:
+    build: .
+    container_name: ai-api-service
+    ports:
+      - "8000:8000"
+    environment:
+      - USE_MOCK=true  # 默认Mock模式，无需API Key
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
